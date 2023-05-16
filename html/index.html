@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+            crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class="container mt-3">
+        <nav class="navbar navbar-expand-lg bg">
+            <img class="img" src="/img/logo7.png" alt="">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 canchinh">
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Trang chu</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Gioi thieu</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Dich vu</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="" data-bs-toggle="modal" data-bs-target="#myModal">Ky gui hang hoa</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Lien he</a>
+                        </li>
+
+                        <!-- navbar tha xuong  -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <div class="bg-light bg1">
+            <p>Form</p>
+            <div class="bg2">
+                <div class="bg3">
+                    <h3>Quy dinh thanh toan</h3>
+                    <ul style="list-style: square;">
+                        <li>Khach hang coc tu 70% - 100% so tien cua don hang</li>
+                        <li>Hang ve sau 24-48 tieng ke tu khi kho Trung Quoc ky nhan</li>
+                        <li>Shop se thanh ly don hang neu sau 1 tuan khach hang khong thanh toan tien nhan hang</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-light bg1">
+            <h3 style="color:blue; margin-left: 1%;">Danh sach kien hang hoa gui</h3>
+            <br>
+            <table class="table table-light table-bordered " style="margin-left: 1%;width:98%" id="sampleTable">
+                <thead>
+                    <tr>
+                        <td>STT</td>
+                        <td>Số serial</td>
+                        <td>Mô tả kiện hàng</td>
+                        <td>Hình ảnh</td>
+                        <td>Trọng lượng (kg)</td>
+                        <td>Phí vận chuyển (VND)</td>
+                        <td>Ngày vận chuyển</td>
+                        <td>Quốc gia</td>
+                        <td>Email</td>
+                    </tr>
+                </thead>
+                <!-- The Modal -->
+                <div class="modal" id="myModal">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                             <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Thong tin kien hang hoa gui</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+    
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-2" for="">So serial:</label>
+                                        
+                                        <div class="col-9">
+                                            <input type="text" onblur="checkseri()" name="serial" class="input1 form-control w-100" id="seri">
+                                            <p class="text-danger err ">Số seri in tren hàng nêu có</p> 
+                                        </div>
+                                    </div>
+                                
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-2" for="">Mo ta kien hang:</label>
+
+                                        <div class="col-9">
+                                            <input type="text" onblur="checkmota()" name="" class="input2 form-control w-100" id="mota">
+                                            <p class="text-danger err1">(*)</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+
+                                        <label class="control-label col-sm-2" for="">Hinh anh:</label>
+
+                                        <div class="col-9">
+                                            <input type="file" name="file" class="input3 form-control w-100" id="anh">
+                                            <p class="text-danger"></p>
+                                        </div>
+                                    </div>
+            
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-2" for="">Trong luong (kg):</label>
+
+                                        <div class="col-9">
+                                            <input type="text" onblur="checktrongluong()" name="" class="input4 form-control w-100" id="trongluong">
+                                            <p class="text-danger err3">(*)</p>
+                                        </div>
+                                    </div>
+            
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-10" for="">Phi van chuyen (VND):</label>
+                                        
+                                        <div class="col-9">
+                                            <input type="number" disabled name="" class="input5 form-control w-100" id="phi" onblur="checkphi()">
+                                        </div>
+                                    </div>
+                                    <br>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-10" for="">Ngay:</label>
+                                        
+                                        <div class="col-9">
+                                            <input type="date" name="" class="input6 form-control w-100" id="date" onblur="checkngay()">
+                                            <p class="text-danger err4">(*)</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-10" for="">Quốc gia:</label>
+                                        
+                                        <div class="col-9">
+                                            <select name="" class="selectNuoc form-control w-100" id="country">
+                                                <option value="Default" disabled="disabled">--Chọn quốc gia--</option>
+                                                <option value="Việt Nam">Việt Nam</option>
+                                                <option value="Trung Quốc">Trung Quốc</option>
+                                                <option value="Nhật Bản">Nhật Bản</option>
+                                            </select>
+                                            <p class="text-danger">(*) Chọn quốc gia</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-2" for="">Email:</label>
+
+                                        <div class="col-9">
+                                            <input type="text" onblur="checkemail()" name="" class="input7 form-control w-100" id="EMail">
+                                            <p class="text-danger err5">(*)</p>
+                                        </div>
+                                    </div>
+                                    <br>
+
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" onclick="checkdieukien()" value="Insert row">Xác nhận</button>
+
+                                        
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-bs-dismiss="modal">Đóng</button>
+                                    </div>
+                                </div>  
+                        </div>
+                    </div>
+                </div>
+            </table>
+        </div>
+    </div>
+    <footer>
+        <div class="container-fluid bg-warning footer position-fixed bottom-0 ">
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4"> Mã số: Mã số sinh viên - Họ tên: Họ tên sinh viên </div>
+                <div class="col-4"></div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="/js/check.js"></script>
+</body>
+</html>
